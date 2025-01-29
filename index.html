@@ -268,7 +268,7 @@ border: none;
 
         var form = new FormData(this); // Alle Formulardaten
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://backend-fluegel-webapps.great-site.net/api/forms/contact.php", true); // Deine PHP-URL
+        xhr.open("POST", "http://backend-fluegel-webapps.great-site.net/api/forms/contact.php", true); // Deine PHP-URL
         
         xhr.onload = function() {
             var response = JSON.parse(xhr.responseText);
