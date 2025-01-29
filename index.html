@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flügel Webapps</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #222;
+            height: 100%;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll-Snap Container */
+        .wrapper {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        /* Sections */
+        .section {
+            scroll-snap-align: start;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .cta-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+
+        .cta-button:hover {
+            background-color: #008c99;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://cdn.pixabay.com/photo/2016/08/12/21/30/ball-1589758_1280.jpg') no-repeat center center/cover;
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+        }
+
+        /* About Section */
+        .about {
+            background: #333;
+        }
+
+        /* Services Section */
+        .services {
+            background: #444;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+        }
+
+        .service-card {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            min-height: 200px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #333;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            background-color: #444;
+            border: 1px solid #666;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .contact button {
+            padding: 12px 30px;
+            background-color: #00bcd4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #008c99;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer {
+            background: #222;
+        }
+
+        .disclaimer p {
+            font-size: 0.9em;
+            color: #bbb;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        /* Mobile Fix */
+        @media (max-width: 768px) {
+            .service-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-card {
+                width: 80%;
+            }
+            #services-cta {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Hero Section -->
+        <section class="hero section">
+            <div class="hero-content">
+                <h1>Flügel Webapps</h1>
+                <h2>Ihre Lösung für Webanwendungen und Prozessoptimierung</h2>
+                <p>Effizient. Schnell. Zukunftsorientiert.</p>
+                <a href="#contact" class="cta-button">gemeinsam starten</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section">
+            <h1>Über Uns</h1>
+            <br><br>
+            <p>Flügel Webapps entwickelt maßgeschneiderte digitale Lösungen, um Ihre Geschäftsprozesse zu optimieren und Effizienz zu steigern.</p>
+            <a href="#services" class="cta-button">Angebote entdecken</a>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <h1>Unsere Leistungen</h1>
+            <br><br>
+            <div class="service-cards">
+                <div class="service-card">
+                    <h2>Webentwicklung</h2>
+                    <p>Individuelle Webanwendungen für Ihr Unternehmen.</p>
+                </div>
+                <div class="service-card">
+                    <h2>Prozessoptimierung</h2>
+                    <p>Automatisierung und Effizienzsteigerung.</p>
+                </div>
+                <div class="service-card">
+                    <h2>UX/UI Design</h2>
+                    <p>Benutzerfreundliche und moderne Designs.</p>
+                </div>
+            </div>
+            <a href="#contact" class="cta-button" id="services-cta">gemeinsam starten</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <h1>Kontakt</h1>
+            <br><br>
+            <p>Wir freuen uns auf Ihre Nachricht!</p>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Ihr Name" required>
+                <input type="email" id="email" placeholder="Ihre E-Mail" required>
+                <textarea id="message" placeholder="Ihre Nachricht" required></textarea>
+                <button type="submit">Absenden</button>
+            </form>
+        </section>
+
+        <!-- Disclaimer Section -->
+        <section class="disclaimer section">
+            <h1>Disclaimer</h1>
+            <br><br>
+            <p>Die Inhalte dieser Webseite dienen ausschließlich Informationszwecken. Trotz sorgfältiger Prüfung übernehmen wir keine Haftung für die Richtigkeit und Vollständigkeit der bereitgestellten Informationen.</p>
+        </section>
+    </div>
+
+</body>
+</html>
