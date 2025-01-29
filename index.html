@@ -307,11 +307,13 @@ border: none;
                     }
                 } catch (error) {
                     showSnackbar("Ungültige Serverantwort", false);
+                    document.getElementById("contact-form").reset();
                 }
             };
 
             xhr.onerror = function() {
                 showSnackbar("Verbindungsfehler. Prüfe die Backend-Erreichbarkeit.", false);
+                document.getElementById("contact-form").reset();
             };
 
             xhr.send(form);
