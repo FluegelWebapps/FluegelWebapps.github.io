@@ -191,64 +191,23 @@ border: none;
             .services p {
                 font-size: 1em;
             }
-        }#.snackbar {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 16px;
-            position: fixed;
-            left: 50%;
-            top: 30px;
-            transform: translateX(-50%);
-            border-radius: 5px;
-            z-index: 1000;
         }
-        .snackbar.show {
-            visibility: visible;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        }
-        @keyframes fadein {
-            from { bottom: 0; opacity: 0; }
-            to { bottom: 30px; opacity: 1; }
-        }
-        @keyframes fadeout {
-            from { bottom: 30px; opacity: 1; }
-            to { bottom: 0; opacity: 0; }
-        }
-
-        /* Blinking Arrow */
-.blinking-arrow {
-    position: fixed;
-    bottom: 75px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 3em;
-    color: #00bcd4;
-    animation: blink 1s infinite alternate;
-}
-
-@keyframes blink {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-}
     </style>
     
 </head>
 <body>
 
     <div class="wrapper">
-        
         <!-- Hero Section -->
         <section id="hero" class="hero section">
             <div class="hero-content">
                 <h1>Flügel Webapps</h1>
+                <br>
                 <h2>Ihre Lösung für Webanwendungen und Prozessoptimierung</h2>
+                <br>
                 <p>Effizient. Schnell. Zukunftsorientiert.</p>
                 <br><a href="#contact" class="cta-button">gemeinsam starten</a>
             </div>
-            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- About Section -->
@@ -257,7 +216,6 @@ border: none;
             <br><br>
             <p>Flügel Webapps entwickelt maßgeschneiderte digitale Lösungen, um Ihre Geschäftsprozesse zu optimieren und Effizienz zu steigern.</p>
             <br><a href="#services" class="cta-button">Angebote entdecken</a>
-            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- Services Section -->
@@ -274,12 +232,11 @@ border: none;
             <p>Moderne, benutzerfreundliche Designs für eine intuitive und angenehme Nutzererfahrung.</p>
 
             <br><a href="#contact" class="cta-button">gemeinsam starten</a>
-            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- Contact Section -->
 <section class="contact section" id="contact">
-    <div id="snackbar"></div>
+
     <h1>Kontakt</h1>
     <br><br>
     <p>Wir freuen uns auf Ihre Nachricht!</p>
@@ -295,10 +252,9 @@ border: none;
                Eine Kopie an mich selbst senden
            </label>
         </div>
-        <br>
+        <br><div id="snackbar"></div><br>
         <button type="submit">Absenden</button>
     </form>
-    
 </section>
 
         <!-- Disclaimer Section -->
@@ -309,7 +265,6 @@ border: none;
             <br><a href="#hero" class="cta-button">zurück</a>
         </section>
     </div>
-    
     <script>
         document.getElementById("contact-form").addEventListener("submit", function(e) {
             e.preventDefault();
