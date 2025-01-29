@@ -200,7 +200,7 @@ border: none;
             padding: 16px;
             position: fixed;
             left: 50%;
-            bottom: 30px;
+            top: 30px;
             transform: translateX(-50%);
             border-radius: 5px;
             z-index: 1000;
@@ -260,6 +260,7 @@ border: none;
 
         <!-- Contact Section -->
 <section class="contact section" id="contact">
+    <div id="snackbar"></div>
     <h1>Kontakt</h1>
     <br><br>
     <p>Wir freuen uns auf Ihre Nachricht!</p>
@@ -278,6 +279,7 @@ border: none;
         <br>
         <button type="submit">Absenden</button>
     </form>
+    
 </section>
 
         <!-- Disclaimer Section -->
@@ -288,7 +290,7 @@ border: none;
             <br><a href="#hero" class="cta-button">zurück</a>
         </section>
     </div>
-    <div id="snackbar"></div>
+    
     <script>
         document.getElementById("contact-form").addEventListener("submit", function(e) {
             e.preventDefault();
