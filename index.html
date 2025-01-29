@@ -191,6 +191,31 @@ border: none;
             .services p {
                 font-size: 1em;
             }
+        }#.snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            position: fixed;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .snackbar.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+        @keyframes fadein {
+            from { bottom: 0; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        @keyframes fadeout {
+            from { bottom: 30px; opacity: 1; }
+            to { bottom: 0; opacity: 0; }
         }
     </style>
     
@@ -198,6 +223,7 @@ border: none;
 <body>
 
     <div class="wrapper">
+        <div id="snackbar"></div>
         <!-- Hero Section -->
         <section id="hero" class="hero section">
             <div class="hero-content">
@@ -263,35 +289,38 @@ border: none;
         </section>
     </div>
     <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault(); // Verhindert das Standardformular-Submit
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            var form = new FormData(this);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://backend-fluegel-webapps.great-site.net/api/forms/contact.php", true);
 
-    var form = new FormData(this); // Alle Formulardaten
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://backend-fluegel-webapps.great-site.net/api/forms/contact.php", true);
+            xhr.onload = function() {
+                try {
+                    var response = JSON.parse(xhr.responseText);
+                    showSnackbar(response.message, response.status === "success");
+                    if (response.status === "success") {
+                        document.getElementById("contact-form").reset();
+                    }
+                } catch (error) {
+                    showSnackbar("Ungültige Serverantwort", false);
+                }
+            };
 
-    xhr.onload = function() {
-        try {
-            var response = JSON.parse(xhr.responseText);
-            if (response.status === "success") {
-                alert(response.message);
-                document.getElementById("contact-form").reset();
-            } else {
-                alert("Fehler: " + response.message);
-            }
-        } catch (error) {
-            alert("Fehler: Ungültige Serverantwort.");
+            xhr.onerror = function() {
+                showSnackbar("Verbindungsfehler. Prüfe die Backend-Erreichbarkeit.", false);
+            };
+
+            xhr.send(form);
+        });
+
+        function showSnackbar(message, success) {
+            var snackbar = document.getElementById("snackbar");
+            snackbar.textContent = message;
+            snackbar.style.backgroundColor = success ? "#4CAF50" : "#D32F2F";
+            snackbar.className = "snackbar show";
+            setTimeout(function() { snackbar.className = snackbar.className.replace(" show", ""); }, 3000);
         }
-    };
-
-    xhr.onerror = function() {
-        alert("Fehler: Die Anfrage konnte nicht gesendet werden. Prüfe, ob das Backend erreichbar ist.");
-    };
-
-    xhr.send(form); // Formulardaten senden
-});
-
-    });
-</script>
+    </script>
 </body>
 </html>
