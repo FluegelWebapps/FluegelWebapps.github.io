@@ -217,6 +217,22 @@ border: none;
             from { bottom: 30px; opacity: 1; }
             to { bottom: 0; opacity: 0; }
         }
+
+        /* Blinking Arrow */
+.blinking-arrow {
+    position: fixed;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: #00bcd4;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
     </style>
     
 </head>
@@ -232,6 +248,7 @@ border: none;
                 <p>Effizient. Schnell. Zukunftsorientiert.</p>
                 <br><a href="#contact" class="cta-button">gemeinsam starten</a>
             </div>
+            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- About Section -->
@@ -240,6 +257,7 @@ border: none;
             <br><br>
             <p>Flügel Webapps entwickelt maßgeschneiderte digitale Lösungen, um Ihre Geschäftsprozesse zu optimieren und Effizienz zu steigern.</p>
             <br><a href="#services" class="cta-button">Angebote entdecken</a>
+            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- Services Section -->
@@ -256,6 +274,7 @@ border: none;
             <p>Moderne, benutzerfreundliche Designs für eine intuitive und angenehme Nutzererfahrung.</p>
 
             <br><a href="#contact" class="cta-button">gemeinsam starten</a>
+            <div class="blinking-arrow">⬇</div>
         </section>
 
         <!-- Contact Section -->
