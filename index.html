@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flügel Webapps</title>
     <style>
+        .blinking-arrow {
+    position: fixed;
+    bottom: 7.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: #00bcd4;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
         /* Global Styles */
         * {
             margin: 0;
@@ -73,7 +87,7 @@
 
         /* Hero Section */
         .hero {
-            background: url('https://cdn.pixabay.com/photo/2016/08/12/21/30/ball-1589758_1280.jpg') no-repeat center center/cover;
+            background: url('herobg.jpg') no-repeat center center/cover;
             position: relative;
             width: 100%;
         }
@@ -201,6 +215,7 @@ border: none;
         <!-- Hero Section -->
         <section id="hero" class="hero section">
             <div class="hero-content">
+                <div class="blinking-arrow">⬇</div>
                 <h1>Flügel Webapps</h1>
                 <br>
                 <h2>Ihre Lösung für Webanwendungen und Prozessoptimierung</h2>
@@ -212,9 +227,10 @@ border: none;
 
         <!-- About Section -->
         <section class="about section">
-            <h1>Über Uns</h1>
+
+            <h1>Philosophie</h1>
             <br><br>
-            <p>Flügel Webapps entwickelt maßgeschneiderte digitale Lösungen, um Ihre Geschäftsprozesse zu optimieren und Effizienz zu steigern.</p>
+            <p>Flügel Webapps steht für innovative, benutzerzentrierte Lösungen im Web- und App-Development. Wir fördern nachhaltiges Wachstum durch maßgeschneiderte, skalierbare Technologien.</p>
             <br><a href="#services" class="cta-button">Angebote entdecken</a>
         </section>
 
